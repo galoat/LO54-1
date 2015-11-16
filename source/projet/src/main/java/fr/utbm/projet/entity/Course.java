@@ -14,6 +14,14 @@ public class Course {
     String titre;
     Location lieu;
 
+    public Course(String code, String titre) {
+        this.code = code;
+        this.titre = titre;
+    }
+
+    public Course() {
+    }
+
     public Location getLieu() {
         return lieu;
     }

@@ -6,11 +6,10 @@
 package fr.utbm.projet.core;
 
 import fr.utbm.projet.entity.Client;
+import fr.utbm.projet.entity.Course;
 import fr.utbm.projet.entity.CourseSession;
 import fr.utbm.repository.HbernateDao;
-import fr.utbm.repository.HibernateUtil;
 import java.util.Date;
-import org.hibernate.Session;
 
 /**
  *
@@ -22,9 +21,10 @@ public class MainProjet {
   HbernateDao sv = new HbernateDao();
   //Session session = HibernateUtil.getSessionFactory().openSession();
    Date d = new Date(2015, 01, 01);
-   CourseSession coursSession= new CourseSession(d);
-   Client c= new  Client("Lacour", "Florian", "ma super addresse", "mon telephone", "mon email",coursSession) ;{
-   sv.save(c);
+   Course c = new Course("LO43","JAVA");
+   CourseSession coursSession= new CourseSession(d,c);
+   Client client= new  Client("Lacour", "Florian", "ma super addresse", "mon telephone", "mon email",coursSession) ;
+   sv.save(client);
    
     }
-}}
+}
