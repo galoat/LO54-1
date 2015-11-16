@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 package fr.utbm.projet.entity;
-import java.util.HashSet;
 import java.util.Set;
 /**
- *
+ * UN client a un seul course session => une personne peut etrez considérer comme plusieurs clients.
  * @author galoat
  */
 public class Client {
@@ -17,17 +16,17 @@ public class Client {
     private String addresse;
     private String phone;
     private String email;
-    private Set CoursInscrit;
+    private CourseSession CoursInscrit;
 
     public Client() {
-    CoursInscrit = new HashSet();}
-    public Client( String lastname, String firstname, String addresse, String phone, String email) {
+    }
+    public Client( String lastname, String firstname, String addresse, String phone, String email,CourseSession cours) {
         this.lastname = lastname;
         this.firstname = firstname;
         this.addresse = addresse;
         this.phone = phone;
         this.email = email;
-         CoursInscrit = new HashSet();
+        CoursInscrit = cours;
      
     }
 
@@ -79,11 +78,11 @@ public class Client {
         this.email = email;
     }
 
-    public Set<CourseSession> getCoursInscrit() {
+    public CourseSession getCoursInscrit() {
         return CoursInscrit;
     }
 
-    public void setCoursInscrit(Set<CourseSession> CoursInscrit) {
+    public void setCoursInscrit(CourseSession CoursInscrit) {
         this.CoursInscrit = CoursInscrit;
     }
 

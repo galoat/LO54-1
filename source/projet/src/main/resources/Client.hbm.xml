@@ -14,6 +14,7 @@
                 <property name="addresse" column="ADDRESS" />
                 <property name="phone" column="PHONE" />
                 <property name="email" column="EMAIL" />
+                <many-to-one name= "CoursInscrit" column= "COURSE_SESSION_ID" class="fr.utbm.projet.entity.CourseSession" cascade="all" />
                
 	</class>
 </hibernate-mapping>	

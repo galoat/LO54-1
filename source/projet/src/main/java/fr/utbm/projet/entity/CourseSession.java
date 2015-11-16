@@ -18,7 +18,7 @@ public class CourseSession {
     private Course theme;
     private Location lieu;
     public CourseSession(Date Debut){
-        
+        this.debut=debut;
     }
     public CourseSession(){
         

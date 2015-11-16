@@ -19,6 +19,7 @@ public class HbernateDao {
 	    try {
 	        session.beginTransaction();
 	          session.merge(c);
+                 System.out.println("sauvergarde effectuer");
 	        session.getTransaction().commit();
 		}
 		catch (HibernateException he) {

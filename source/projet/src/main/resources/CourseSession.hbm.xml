@@ -11,9 +11,6 @@
 	</id>
             	<property name="debut" column="START_DATE" />
                 <property name="fin" column="END_DATE" />
-                <set name="CoursInscrit" cascade="all"  >
-                    <key column="COURSE_SESSION_ID"   />
-                    <one-to-many  class="fr.utbm.projet.entity.CourseSession" />
-                </set>
+              
         </class>
 </hibernate-mapping>
