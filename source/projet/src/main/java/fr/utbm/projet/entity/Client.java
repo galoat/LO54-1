@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package fr.utbm.projet.entity;
-import java.util.LinkedList;
+import java.util.HashSet;
+import java.util.Set;
 /**
  *
  * @author galoat
@@ -14,18 +15,19 @@ public class Client {
     private String lastname;
     private String firstname;
     private String addresse;
-    private int phone;
+    private String phone;
     private String email;
-    private LinkedList<Course> CoursInscrit;
+    private Set CoursInscrit;
 
-    public Client() {}
-    public Client(int id, String lastname, String firstname, String addresse, int phone, String email) {
-        this.id = id;
+    public Client() {
+    CoursInscrit = new HashSet();}
+    public Client( String lastname, String firstname, String addresse, String phone, String email) {
         this.lastname = lastname;
         this.firstname = firstname;
         this.addresse = addresse;
         this.phone = phone;
         this.email = email;
+         CoursInscrit = new HashSet();
      
     }
 
@@ -61,11 +63,11 @@ public class Client {
         this.addresse = addresse;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -77,11 +79,11 @@ public class Client {
         this.email = email;
     }
 
-    public LinkedList<Course> getCoursInscrit() {
+    public Set<CourseSession> getCoursInscrit() {
         return CoursInscrit;
     }
 
-    public void setCoursInscrit(LinkedList<Course> CoursInscrit) {
+    public void setCoursInscrit(Set<CourseSession> CoursInscrit) {
         this.CoursInscrit = CoursInscrit;
     }
 

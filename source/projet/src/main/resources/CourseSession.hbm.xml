@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="fr.utbm.projet.entity">
+	<class name="CourseSession" table="COURSE_SESSION">
+        <id name="ID" column="ID">
+		    <generator class="identity"/>
+	</id>
+            	<property name="debut" column="START_DATE" />
+                <property name="fin" column="END_DATE" />
+                <set name="CoursInscrit" cascade="all"  >
+                    <key column="COURSE_SESSION_ID"   />
+                    <one-to-many  class="fr.utbm.projet.entity.CourseSession" />
+                </set>
+        </class>
+</hibernate-mapping>

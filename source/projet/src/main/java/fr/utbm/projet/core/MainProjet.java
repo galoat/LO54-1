@@ -5,6 +5,8 @@
  */
 package fr.utbm.projet.core;
 
+import fr.utbm.projet.entity.Client;
+import fr.utbm.repository.HbernateDao;
 import fr.utbm.repository.HibernateUtil;
 import org.hibernate.Session;
 
@@ -15,7 +17,15 @@ import org.hibernate.Session;
 public class MainProjet {
     public static void main (String[] args){
  
-  Session session=HibernateUtil.getSessionFactory().openSession();
-
+  
+  Client c= new Client("lacour","Florian","Addresse","061225491","mone email");
+  HbernateDao sv = new HbernateDao();
+   Session session = HibernateUtil.getSessionFactory().openSession();
+  //sv.save(c);
+  /*
+  Date d = new Date(2014,10,10);
+  CourseSession cs = new CourseSession(d);
+  c.getCoursInscrit().add(cs);
+  sv.save(c);*/
    }
 }

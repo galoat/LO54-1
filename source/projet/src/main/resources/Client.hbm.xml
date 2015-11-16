@@ -4,11 +4,16 @@
   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="fr.utbm.projet.entity">
-	<class name="Client" table="Client">
+<hibernate-mapping >
+	<class name="fr.utbm.projet.entity.Client" table="CLIENT">
 	  	<id name="id" column="ID">
 		    <generator class="identity"/>
 		</id>
-               <property name="lastname" column="LASTNAME" not-null="true" />
+            	<property name="lastname" column="LASTNAME" />
+                <property name="firstname" column="FIRSTNAME" />
+                <property name="addresse" column="ADDRESS" />
+                <property name="phone" column="PHONE" />
+                <property name="email" column="EMAIL" />
+               
 	</class>
 </hibernate-mapping>	
