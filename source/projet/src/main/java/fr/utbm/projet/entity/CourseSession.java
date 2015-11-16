@@ -17,9 +17,11 @@ public class CourseSession {
     private Date fin;
     private Course theme;
     private Location lieu;
-    public CourseSession(Date Debut, Course theme){
-        this.debut=debut;
+    public CourseSession(Date Debut, Course theme, Location location,Date fin){
+        this.debut=Debut;
         this.theme = theme;
+        this.lieu= location;
+        this.fin=fin;
     }
     public CourseSession(){
         

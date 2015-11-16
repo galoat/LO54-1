@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package fr.utbm.projet.entity;
-import java.util.Set;
+
 /**
  * UN client a un seul course session => une personne peut etrez considérer comme plusieurs clients.
  * @author galoat
@@ -18,17 +18,26 @@ public class Client {
     private String email;
     private CourseSession CoursInscrit;
 
-    public Client() {
-    }
-    public Client( String lastname, String firstname, String addresse, String phone, String email,CourseSession cours) {
+    public Client(String lastname, String firstname, String addresse, String phone, String email, CourseSession CoursInscrit) {
         this.lastname = lastname;
         this.firstname = firstname;
         this.addresse = addresse;
         this.phone = phone;
         this.email = email;
-        CoursInscrit = cours;
-     
+        this.CoursInscrit = CoursInscrit;
     }
+
+    public Client(String lastname, String firstname, String addresse, String phone, String email) {
+        this.lastname = lastname;
+        this.firstname = firstname;
+        this.addresse = addresse;
+        this.phone = phone;
+        this.email = email;
+    }
+
+    public Client() {
+    }
+   
 
     public int getId() {
         return id;

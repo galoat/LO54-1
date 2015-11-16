@@ -5,6 +5,8 @@
  */
 package fr.utbm.projet.entity;
 
+import java.util.List;
+
 /**
  *
  * @author galoat
@@ -12,7 +14,7 @@ package fr.utbm.projet.entity;
 public class Course {
     String code;
     String titre;
-    Location lieu;
+    
 
     public Course(String code, String titre) {
         this.code = code;
@@ -22,14 +24,8 @@ public class Course {
     public Course() {
     }
 
-    public Location getLieu() {
-        return lieu;
-    }
 
-    public void setLieu(Location lieu) {
-        this.lieu = lieu;
-    }
-    
+ 
     public String getCode() {
         return code;
     }

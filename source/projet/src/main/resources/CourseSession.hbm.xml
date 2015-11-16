@@ -12,5 +12,6 @@
             	<property name="debut" column="START_DATE" />
                 <property name="fin" column="END_DATE" />
                 <many-to-one name="theme" column="COURSE_CODE" unique="true" cascade="all"/> 
+                <many-to-one name="lieu" column="LOCATION_ID" unique="true" cascade="all"/> 
         </class>
 </hibernate-mapping>

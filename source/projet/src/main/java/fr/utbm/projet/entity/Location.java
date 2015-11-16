@@ -13,6 +13,13 @@ public class Location {
     private int id;
     private String city;
 
+    public Location(String city) {
+        this.city = city;
+    }
+
+    public Location() {
+    }
+
     public int getId() {
         return id;
     }
