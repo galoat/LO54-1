@@ -24,6 +24,11 @@ public class Course {
     public Course() {
     }
 
+    @Override
+    public String toString() {
+        return "Course{" + "code=" + code + ", titre=" + titre + '}';
+    }
+
 
  
     public String getCode() {

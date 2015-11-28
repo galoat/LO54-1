@@ -20,6 +20,11 @@ public class Location {
     public Location() {
     }
 
+    @Override
+    public String toString() {
+        return "Location{" + "id=" + id + ", city=" + city + '}';
+    }
+
     public int getId() {
         return id;
     }

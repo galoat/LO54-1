@@ -5,7 +5,6 @@
  */
 package fr.utbm.projet.service;
 
-import fr.utbm.projet.entity.Course;
 import fr.utbm.projet.entity.CourseSession;
 import fr.utbm.repository.HbernateDao;
 import java.util.List;
@@ -20,5 +19,23 @@ public class CourseSessionService {
          HbernateDao repository = new HbernateDao();
          lCourse = repository.getListSession();
         return lCourse;
+     }
+      public List<CourseSession> getlistCourseSessionByCode(String code){
+        List<CourseSession> lCourse=null;
+         HbernateDao repository = new HbernateDao();
+         lCourse = repository.getListSession();
+         for(int i=0;i<lCourse.size();i++){
+              if(!lCourse.get(i).getTheme().getCode().equals(code)){
+                    lCourse.remove(i);
+                        }
+         }
+        return lCourse;
+     }
+     
+       public CourseSession getlistCourseSessionByID(int  ID){
+        CourseSession cours=null;
+         HbernateDao repository = new HbernateDao();
+         cours = repository.getCourseSessionByID(ID);
+         return cours;
      }
 }

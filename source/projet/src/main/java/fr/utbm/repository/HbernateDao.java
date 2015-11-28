@@ -42,6 +42,31 @@ public class HbernateDao {
                 }
                     
                 }}
+    public CourseSession getCourseSessionByID(int ID){
+         Session session = HibernateUtil.getSessionFactory().openSession();
+         CourseSession retour=null;
+	    try {
+	        session.beginTransaction();
+	        retour= (CourseSession)session.get(CourseSession.class,ID);
+	        session.getTransaction().commit();
+		}
+		catch (HibernateException he) {
+	        he.printStackTrace();
+	        if(session.getTransaction() != null) { 
+	            try {
+	                session.getTransaction().rollback();	
+	            }catch(HibernateException he2) {he2.printStackTrace(); }
+	        }
+		}
+		finally {
+	        if(session != null) {
+	            try { session.close();}
+                    catch(HibernateException he2) {he2.printStackTrace(); }
+                }
+                    
+                }
+            return retour;
+    }
     /*
         TO DO SET MAX RESULT
     */

@@ -6,6 +6,7 @@
 package fr.utbm.projet.service;
 
 import fr.utbm.projet.entity.Client;
+import fr.utbm.projet.entity.CourseSession;
 import fr.utbm.repository.HbernateDao;
 import java.util.List;
 
@@ -15,6 +16,11 @@ import java.util.List;
  */
 public class ClientService {
     
+    
+    public Client creerClient(String lastname,String firstname,String addresse, String phone,String email,CourseSession CoursInscrit)
+    {
+        return new Client(lastname,firstname,addresse,phone,email,CoursInscrit);
+    }
     public void registerMovie(Client client){
         HbernateDao d = new HbernateDao();
         d.save(client);

@@ -37,6 +37,11 @@ public class Client {
 
     public Client() {
     }
+
+    @Override
+    public String toString() {
+        return "Client{" + "id=" + id + ", lastname=" + lastname + ", firstname=" + firstname + ", addresse=" + addresse + ", phone=" + phone + ", email=" + email + ", CoursInscrit=" + CoursInscrit + '}';
+    }
    
 
     public int getId() {

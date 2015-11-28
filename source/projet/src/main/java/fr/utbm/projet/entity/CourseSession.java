@@ -26,6 +26,12 @@ public class CourseSession {
     public CourseSession(){
         
     }
+
+    @Override
+    public String toString() {
+        return "CourseSession{" + "ID=" + ID + ", debut=" + debut + ", fin=" + fin + ", theme=" + theme + ", lieu=" + lieu + '}';
+    }
+    
     public int getID() {
         return ID;
     }
