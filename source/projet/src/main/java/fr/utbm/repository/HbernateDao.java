@@ -163,7 +163,7 @@ public class HbernateDao {
          Session session = HibernateUtil.getSessionFactory().openSession();
 	    try {
 	        session.beginTransaction();       
-                Query query = session.createQuery("from LOCATION u where  = ? ");
+                Query query = session.createQuery("from Location  u where  city = ? ");
                 query.setParameter(0,ville);
                   lCourLocation = query.list();  
                  
@@ -186,5 +186,27 @@ public class HbernateDao {
                 }
             return   lCourLocation;
     }
-
+ public void save(Location c) {
+	    Session session = HibernateUtil.getSessionFactory().openSession();
+	    try {
+	        session.beginTransaction();
+	          session.merge(c);
+              
+	        session.getTransaction().commit();
+		}
+		catch (HibernateException he) {
+	        he.printStackTrace();
+	        if(session.getTransaction() != null) { 
+	            try {
+	                session.getTransaction().rollback();	
+	            }catch(HibernateException he2) {he2.printStackTrace(); }
+	        }
+		}
+		finally {
+	        if(session != null) {
+	            try { session.close();}
+                    catch(HibernateException he2) {he2.printStackTrace(); }
+                }
+                    
+                }}
 }

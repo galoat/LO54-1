@@ -5,14 +5,12 @@
  */
 package fr.utbm.projet.core;
 
-import fr.utbm.projet.controller.CourseController;
-import fr.utbm.projet.controller.CourseSessionController;
 import fr.utbm.projet.entity.Client;
 import fr.utbm.projet.entity.Course;
 import fr.utbm.projet.entity.CourseSession;
 import fr.utbm.projet.entity.Location;
 import fr.utbm.projet.service.ClientService;
-import fr.utbm.repository.HbernateDao;
+import fr.utbm.projet.service.LocationService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,16 +21,20 @@ import java.util.Date;
  */
 public class MainProjet {
     public static void main (String[] args) throws ParseException{
-        Course c = new Course("EC05","Sociologie");
-   Location lieu =new Location("Sevenans"); 
-   
+         
+         
+    LocationService lService = new LocationService();
+    /*
+       Location  lieu =lService.getCityString("Belfort");
+       Course c = new Course("LO43","JAVA SE");
+  
         SimpleDateFormat ft = new SimpleDateFormat("MM/dd/yyyy");
-        Date debut = ft.parse("24/01/2015");
-       Date fin = ft.parse("31/01/2015");
-   CourseSession coursSession= new CourseSession(debut,c,lieu, fin);
+        Date debut = ft.parse("4/01/2015");
+       Date fin = ft.parse("10/01/2015");
+   CourseSession coursSession= new CourseSession(debut,c,lieu,fin);
         
         ClientService clientService = new ClientService();
       Client monClient=  clientService.creerClient("Client","client","Addresse client", "06122291","client@email",coursSession);
-      clientService.registerClient(monClient);
-    }
+      clientService.registerClient(monClient);*/
+           }
 }
