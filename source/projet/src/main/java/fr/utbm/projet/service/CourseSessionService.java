@@ -24,6 +24,7 @@ public class CourseSessionService {
           for(CourseSession cSession:lCourse){
               cSession.getDebut();
           }*/
+         System.err.println("RECHERCHE DE LA LISTE");
         return lCourse;
      }
       public List<CourseSession> getlistCourseSessionByCode(String code){

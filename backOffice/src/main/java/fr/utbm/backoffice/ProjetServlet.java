@@ -43,6 +43,8 @@ public class ProjetServlet extends HttpServlet {
                session.setAttribute("list",list );
                
      */         
+     
+                 HttpSession session = request.getSession();
                 // Recuperation des Villes
                 LocationService lservice= new LocationService();
                 List<Location>listLocation=  lservice.getlistCourseCity();
@@ -52,6 +54,8 @@ public class ProjetServlet extends HttpServlet {
                CourseSessionService service = new CourseSessionService();
                List<CourseSession> list = service.getlistCourseSession();
                request.setAttribute("listCours",list);
+              
+               
                 RequestDispatcher disp = request.getRequestDispatcher("brackOffice.jsp");
                disp.forward(request, response);
     }

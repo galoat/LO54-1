@@ -81,8 +81,9 @@ public class ServletInscription extends HttpServlet {
         ClientService ClientService = new ClientService();
         Client Client= ClientService.creerClient(request.getParameter("LName"), request.getParameter("FName"), request.getParameter("Adresse"), request.getParameter("Phone"), request.getParameter("Email"), cours);
         ClientService.registerClient(Client);
-        RequestDispatcher disp = request.getRequestDispatcher("brackOffice.jsp");
-        disp.forward(request, response);
+     //   RequestDispatcher disp = request.getRequestDispatcher("brackOffice.jsp");
+    response.sendRedirect("ProjetServlet");
+       //    disp.forward(request, response);
         
     }
 
