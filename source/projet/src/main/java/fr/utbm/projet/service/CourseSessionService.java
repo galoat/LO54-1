@@ -7,6 +7,7 @@ package fr.utbm.projet.service;
 
 import fr.utbm.projet.entity.CourseSession;
 import fr.utbm.repository.HbernateDao;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**
@@ -18,6 +19,11 @@ public class CourseSessionService {
         List<CourseSession> lCourse=null;
          HbernateDao repository = new HbernateDao();
          lCourse = repository.getListSession();
+         /*
+         SimpleDateFormat ft = new SimpleDateFormat("MM/dd/yyyy");
+          for(CourseSession cSession:lCourse){
+              cSession.getDebut();
+          }*/
         return lCourse;
      }
       public List<CourseSession> getlistCourseSessionByCode(String code){

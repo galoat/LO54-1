@@ -21,7 +21,7 @@ public class ClientService {
     {
         return new Client(lastname,firstname,addresse,phone,email,CoursInscrit);
     }
-    public void registerMovie(Client client){
+    public void registerClient(Client client){
         HbernateDao d = new HbernateDao();
         d.save(client);
     }

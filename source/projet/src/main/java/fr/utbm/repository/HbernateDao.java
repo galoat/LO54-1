@@ -8,6 +8,7 @@ package fr.utbm.repository;
 import fr.utbm.projet.entity.Client;
 import fr.utbm.projet.entity.Course;
 import fr.utbm.projet.entity.CourseSession;
+import fr.utbm.projet.entity.Location;
 import java.util.List;
 import org.hibernate.Hibernate;
 import org.hibernate.HibernateException;
@@ -127,4 +128,63 @@ public class HbernateDao {
                 }
             return lCourseSession;
     }
+     
+        public List<Location> getListLocation(){
+        List<Location> lCourLocation=null;
+         Session session = HibernateUtil.getSessionFactory().openSession();
+	    try {
+	        session.beginTransaction();
+	          Query query = session.createQuery("from Location ");
+                  lCourLocation = query.list();  
+                 
+                  session.getTransaction().commit();
+		}
+		catch (HibernateException he) {
+	        he.printStackTrace();
+	        if(session.getTransaction() != null) { 
+	            try {
+	                session.getTransaction().rollback();	
+	            }catch(HibernateException he2) {he2.printStackTrace(); }
+	        }
+		}
+		finally {
+	        if(session != null) {
+	            try { session.close();}
+                    catch(HibernateException he2) {he2.printStackTrace(); }
+                }
+                    
+                }
+            return lCourLocation;
+    }
+
+
+        public List<Location> getLocationByString(String ville){
+          List<Location> lCourLocation=null;
+         Session session = HibernateUtil.getSessionFactory().openSession();
+	    try {
+	        session.beginTransaction();       
+                Query query = session.createQuery("from LOCATION u where  = ? ");
+                query.setParameter(0,ville);
+                  lCourLocation = query.list();  
+                 
+                  session.getTransaction().commit();
+		}
+		catch (HibernateException he) {
+	        he.printStackTrace();
+	        if(session.getTransaction() != null) { 
+	            try {
+	                session.getTransaction().rollback();	
+	            }catch(HibernateException he2) {he2.printStackTrace(); }
+	        }
+		}
+		finally {
+	        if(session != null) {
+	            try { session.close();}
+                    catch(HibernateException he2) {he2.printStackTrace(); }
+                }
+                    
+                }
+            return   lCourLocation;
+    }
+
 }

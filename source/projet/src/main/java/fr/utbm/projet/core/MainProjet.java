@@ -11,7 +11,10 @@ import fr.utbm.projet.entity.Client;
 import fr.utbm.projet.entity.Course;
 import fr.utbm.projet.entity.CourseSession;
 import fr.utbm.projet.entity.Location;
+import fr.utbm.projet.service.ClientService;
 import fr.utbm.repository.HbernateDao;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -19,23 +22,17 @@ import java.util.Date;
  * @author galoat
  */
 public class MainProjet {
-    public static void main (String[] args){
- /*
-  HbernateDao sv = new HbernateDao();
-  //Session session = HibernateUtil.getSessionFactory().openSession();
-   Date debut = new Date(2015, 01, 01);
-   Date fin = new Date(2015, 02, 02);
-   Course c = new Course("LO43","JAVA");
-   Location lieu =new Location("UTBM-BELFORT");
-   CourseSession coursSession= new CourseSession(debut,c,lieu,fin);
-   Client client= new  Client("Bidule2", "machin2", "addresse machin2 ", "mon telephone machin2", "mon email machin2",coursSession) ;
-   sv.save(client);
-   */
-       CourseSessionController cs = new CourseSessionController();
-       cs.getListCourSession();
-   /*
-      ClientController c = new ClientController();
-        c.createClientFromConsole();
-   */
+    public static void main (String[] args) throws ParseException{
+        Course c = new Course("EC05","Sociologie");
+   Location lieu =new Location("Sevenans"); 
+   
+        SimpleDateFormat ft = new SimpleDateFormat("MM/dd/yyyy");
+        Date debut = ft.parse("24/01/2015");
+       Date fin = ft.parse("31/01/2015");
+   CourseSession coursSession= new CourseSession(debut,c,lieu, fin);
+        
+        ClientService clientService = new ClientService();
+      Client monClient=  clientService.creerClient("Client","client","Addresse client", "06122291","client@email",coursSession);
+      clientService.registerClient(monClient);
     }
 }
