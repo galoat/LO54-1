@@ -4,6 +4,7 @@
     Author     : galoat
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <!DOCTYPE html>
@@ -28,8 +29,8 @@
                  <tr> 
                      <th>${cours.theme.code}</th>
                      <th>${cours.theme.titre}</th>
-                     <th> ${cours.debut}</th>
-                     <th>${cours.fin}</th>
+                     <th> <fmt:formatDate type="date" value="${cours.debut}"/></th>
+                      <th> <fmt:formatDate type="date" value="${cours.fin}"/></th>
                      <th>${cours.lieu.city}</th>  
                      <th>
                  <form action="ServletInscription">
@@ -42,14 +43,17 @@
                 <form action="ProjetServlet" method="POST">
                       <div class="label">
                               <label>Keyword :</label>
-                                      <input name="keyword" type="text">
+                              <input name="keyword" type="text" >
                          </div> 
                       <br>
                       <select name="location">
+                          <option>Toute les Villes </option>
                           <c:forEach items="${listeVille}" var="ville">
-                              <option>${ville.city}
+                                    <option>${ville.city}
                           </c:forEach>
                        </select>
+                      <br>
+                      <input name="dateDebut" type="text" placeholder="JJ/MM/AA">
                      <button type="submit">Rechercher</button>		 
         </form>
     </body>

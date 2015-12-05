@@ -10,10 +10,12 @@ import fr.utbm.projet.entity.Course;
 import fr.utbm.projet.entity.CourseSession;
 import fr.utbm.projet.entity.Location;
 import fr.utbm.projet.service.ClientService;
+import fr.utbm.projet.service.CourseSessionService;
 import fr.utbm.projet.service.LocationService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  *
@@ -22,7 +24,7 @@ import java.util.Date;
 public class MainProjet {
     public static void main (String[] args) throws ParseException{
          
-      
+      /*
    
        Location  lieu =new Location("Belfort");
        Course c = new Course("LO43","JAVA SE");
@@ -34,6 +36,9 @@ public class MainProjet {
         
         ClientService clientService = new ClientService();
       Client monClient=  clientService.creerClient("Client","client","Addresse client", "06122291","client@email",coursSession);
-      clientService.registerClient(monClient);
+      clientService.registerClient(monClient);*/
+          CourseSessionService service = new CourseSessionService();
+               List<CourseSession> list = service.getlistCourseSessionByCode("LO43");
+               System.out.println(list.toString());
            }
 }

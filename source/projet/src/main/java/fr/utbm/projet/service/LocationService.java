@@ -38,7 +38,24 @@ public class LocationService {
        
         return lLocation;
      }
+      public List<Location> getlistCourseCity(  List<Location> lLocation){
+           ArrayList<String> cityPresente = new ArrayList<>();
+          String aVerifier = null;
+       for(int i=0;i<lLocation.size();i++){
+          aVerifier= lLocation.get(i).getCity();
         
+               if(!cityPresente.contains(aVerifier)){
+                  cityPresente.add(aVerifier);
+               }else
+               {
+                   lLocation.remove(i);
+               }
+                   
+             
+           }
+       
+        return lLocation;
+     }
     public Location getCityString(String st){
          List<Location> loc=null;
          HbernateDao repository = new HbernateDao();

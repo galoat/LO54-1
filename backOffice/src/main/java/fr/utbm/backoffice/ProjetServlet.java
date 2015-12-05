@@ -10,9 +10,14 @@ import fr.utbm.projet.entity.Location;
 import fr.utbm.projet.service.CourseSessionService;
 import fr.utbm.projet.service.LocationService;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -45,22 +50,24 @@ public class ProjetServlet extends HttpServlet {
      */         
      
                  HttpSession session = request.getSession();
-                // Recuperation des Villes
-                LocationService lservice= new LocationService();
-                List<Location>listLocation=  lservice.getlistCourseCity();
-                request.setAttribute("listeVille",listLocation);
+               
                                 
                 // recuperation de la des courseSession
                CourseSessionService service = new CourseSessionService();
-               List<CourseSession> list = service.getlistCourseSession();
+               List<CourseSession> list = service.getlistCourseSession();    
                request.setAttribute("listCours",list);
               
-               
+               session.setAttribute("list", list);
+               // Mise e place de la liste des villes 
+                 List<Location>listLocation =service.getListCity(list);
+                request.setAttribute("listeVille",listLocation);
                 RequestDispatcher disp = request.getRequestDispatcher("brackOffice.jsp");
                disp.forward(request, response);
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+ 
+ 
+  
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -86,16 +93,54 @@ public class ProjetServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Gestion de la fonction recherche
+        
                 CourseSessionService service = new CourseSessionService();
-               List<CourseSession> list = service.getlistCourseSessionByCode(request.getParameter("keyword"));
-               HttpSession session = request.getSession();
-               session.setAttribute("listCours", list);
+                HttpSession session = request.getSession();
+                 List<CourseSession> list =(List<CourseSession>)session.getAttribute("list");
+                 
+                 
+                 
+                  // Si l'utilisateur a renseigner le champ RechercheCode UV on vas rechercher les UV qui contienne ce code
+                if(!"".equals(request.getParameter("keyword"))){
+                    System.out.println("keyword ");
+                      list= service.getlistCourseSessionByCode(request.getParameter("keyword"),list);
+                }
+                
+                
+                
+              // Si l'utilisateur a renseigner le champ Location UV on vas rechercher les UV qui contienne cetteVille
+                if(request.getParameter("location")!=null && !"Toute les Villes".equals(request.getParameter("location"))){
+                    System.out.println("location");
+                    list = service.getlistCourseSessionByCity(request.getParameter("location"),list);
+                }
+                
+                
+                
+                
+                //  si l'utilisateur a renseigner la date
+                if(!"".equals(request.getParameter("dateDebut"))){
+                    Date aComparer=null;
+                    try {
+                        System.out.println(request.getParameter("dateDebut"));
+                        SimpleDateFormat ft = new SimpleDateFormat("dd/MM/yy");
+                        aComparer  = ft.parse(request.getParameter("dateDebut"));
+                           System.out.println(aComparer);
+                        } catch (ParseException ex) {
+                        Logger.getLogger(ProjetServlet.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    list=service.getlistCourseSessionByDateDebut(aComparer, list);
+                     
+                }
+               // on remet la listes des villes
+               List<Location>listLocation =service.getListCity(list);
+                request.setAttribute("listeVille",listLocation);
                request.setAttribute("listCours",list);
                RequestDispatcher disp = request.getRequestDispatcher("brackOffice.jsp");
                disp.forward(request, response);
            
     }
 
+     
     /**
      * Returns a short description of the servlet.
      *
@@ -105,17 +150,5 @@ public class ProjetServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    protected Date stringToDate(String dates){
-        Date date=null;
-        if(dates != null){
-            SimpleDateFormat formatage= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            String date1 =dates;
-            try {
-                date = formatage.parse(date1);
-                
-            } catch (Exception e) {
-            }
-        }
-        return date;
-    }
+   
 }
