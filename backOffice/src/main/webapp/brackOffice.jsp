@@ -53,6 +53,7 @@
                           </c:forEach>
                        </select>
                       <br>
+                      Cours commençant après
                       <input name="dateDebut" type="text" placeholder="JJ/MM/AA">
                      <button type="submit">Rechercher</button>		 
         </form>
