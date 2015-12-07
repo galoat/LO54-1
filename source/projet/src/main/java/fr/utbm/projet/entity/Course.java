@@ -5,8 +5,6 @@
  */
 package fr.utbm.projet.entity;
 
-import java.util.List;
-
 /**
  * <b>Course est la classe représentant un cours </b>
  * <p>
@@ -18,44 +16,51 @@ import java.util.List;
  * </p>
  * <p>
  * </p>
- * 
+ *
  *
  * @see Course.hbm.xml
  * @author lacour florian
  */
 public class Course {
+
     /**
-         * Le Code de l'UV. Ce code n'est pas modifiable.
-         * Il sert d'itentifiant pour la base de donnée
-         * @see Course.hbm.xml
-         */
+     * Le Code de l'UV. Ce code n'est pas modifiable. Il sert d'itentifiant pour
+     * la base de donnée
+     *
+     * @see Course.hbm.xml
+     */
     String code;
-     /**
-         * Le Titre de l'UV. Ce code n'est pas modifiable.
-         * @see Course.hbm.xml
-         */
+    /**
+     * Le Titre de l'UV. Ce code n'est pas modifiable.
+     *
+     * @see Course.hbm.xml
+     */
     String titre;
-    
-      /**
-         * Constructeur Course.
-         * <p>
-         * A la construction nous renseignons tous les paramétre du cours
-         * </p>
-         * 
-         * @param Code : Le code de l'UV 
-         * @param titre : le titre de l'UV
-         */
+
+    /**
+     * Constructeur Course.
+     * <p>
+     * A la construction nous renseignons tous les paramétre du cours
+     * </p>
+     *
+     * @param code : Le code de l'UV
+     * @param titre : le titre de l'UV
+     */
     public Course(String code, String titre) {
         this.code = code;
         this.titre = titre;
     }
-/**
- * Constructeur par default
- */
+
+    /**
+     * Constructeur par default
+     */
     public Course() {
     }
-/**
-     * methode permettant de retourné les valeurs contenus dans la class Course sous forme de String
+
+    /**
+     * methode permettant de retourné les valeurs contenus dans la class Course
+     * sous forme de String
+     *
      * @return String : Affichage de toute les valeurs contenus dans la class
      */
     @Override
@@ -63,8 +68,6 @@ public class Course {
         return "Course{" + "code=" + code + ", titre=" + titre + '}';
     }
 
-
- 
     public String getCode() {
         return code;
     }
@@ -80,5 +83,5 @@ public class Course {
     public void setTitre(String titre) {
         this.titre = titre;
     }
-    
+
 }

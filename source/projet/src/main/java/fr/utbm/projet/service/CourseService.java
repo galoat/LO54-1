@@ -10,15 +10,25 @@ import fr.utbm.repository.HbernateDao;
 import java.util.List;
 
 /**
+ * <b>CourseService est la classe Charger de gerer toute les interraction avec
+ * l'entité Course</b>
+ * * <b>CourseService gere aussi les interraction avec hibernate et la BDD</b>
  *
- * @author galoat
+ * @see Course
+ * @author lacour florian
  */
 public class CourseService {
-     public List<Course> listClient(){
-        List<Course> lCourse=null;
-         HbernateDao repository = new HbernateDao();
-         lCourse =repository.getListCourse();
+
+    /**
+     * Classe permettant de connaitre la liste de Course présent dans la BDD
+     *
+     * @return la liste des Cours present en BDD
+     */
+    public List<Course> listClient() {
+        List<Course> lCourse = null;
+        HbernateDao repository = new HbernateDao();
+        lCourse = repository.getListCourse();
         return lCourse;
-     }
-     
+    }
+
 }

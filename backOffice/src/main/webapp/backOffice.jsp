@@ -40,7 +40,7 @@
              </th>
                 </tr>
             </c:forEach>
-                <form action="ProjetServlet" method="POST">
+                <form action="ServletBackOffice" method="POST">
                       <div class="label">
                               <label>Keyword :</label>
                               <input name="keyword" type="text" >

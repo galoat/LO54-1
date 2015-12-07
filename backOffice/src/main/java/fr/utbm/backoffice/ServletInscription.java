@@ -47,9 +47,7 @@ public class ServletInscription extends HttpServlet {
          RequestDispatcher disp = request.getRequestDispatcher("JSPInscription.jsp");
          disp.forward(request, response);
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
+   /**
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -81,9 +79,9 @@ public class ServletInscription extends HttpServlet {
         ClientService ClientService = new ClientService();
         Client Client= ClientService.creerClient(request.getParameter("LName"), request.getParameter("FName"), request.getParameter("Adresse"), request.getParameter("Phone"), request.getParameter("Email"), cours);
         ClientService.registerClient(Client);
-     //   RequestDispatcher disp = request.getRequestDispatcher("brackOffice.jsp");
-    response.sendRedirect("ProjetServlet");
-       //    disp.forward(request, response);
+    
+    response.sendRedirect("ServletBackOffice");
+ 
         
     }
 

@@ -8,30 +8,43 @@ package fr.utbm.projet.service;
 import fr.utbm.projet.entity.Client;
 import fr.utbm.projet.entity.CourseSession;
 import fr.utbm.repository.HbernateDao;
-import java.util.List;
 
 /**
+ * <b>ClientService est la classe Charger de gerer toute les interraction avec
+ * l'entité Client</b>
+ * * <b>ClientService gere aussi les interraction avec hibernate et la BDD</b>
  *
- * @author Lacour Florian
+ * @see Client
+ * @author lacour florian
  */
 public class ClientService {
-    
-    
-    public Client creerClient(String lastname,String firstname,String addresse, String phone,String email,CourseSession CoursInscrit)
-    {
-        return new Client(lastname,firstname,addresse,phone,email,CoursInscrit);
+
+    /**
+     * class charger de creer un Client
+     *
+     * @param lastname Le nom de famille du Client
+     * @param firstname Le prenom du CLient
+     * @param addresse L'addresse du CLient
+     * @param phone Le telephone du CLient
+     * @param email L'email de notre Client
+     * @param CoursInscrit Le cours dans lesquel notre client est inscrit
+     *
+     * @return Le client creer
+     */
+
+    public Client creerClient(String lastname, String firstname, String addresse, String phone, String email, CourseSession CoursInscrit) {
+        return new Client(lastname, firstname, addresse, phone, email, CoursInscrit);
     }
-    public void registerClient(Client client){
+
+    /**
+     * Methode permetant d'enregister un Client dans la base de données
+     *
+     * @param client Le client a sauvegarder
+     * @see HibernateDAO
+     */
+
+    public void registerClient(Client client) {
         HbernateDao d = new HbernateDao();
         d.save(client);
     }
-    public Client getMovie(){
-        Client client =null;
-        return client;
-    }
-    public List<Client> listClient(){
-        List<Client> lClient=null;
-        return lClient;
-    }
-     
 }

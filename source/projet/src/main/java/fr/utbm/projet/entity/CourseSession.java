@@ -91,7 +91,7 @@ public class CourseSession {
         
     }
  /**
-     * methode permettant de retourné les valeurs contenus dans la class client sous forme de String
+     * methode permettant de retourné les valeurs contenus dans la class CourseSession sous forme de String
      * @return Affichage de toute les valeurs contenus dans la class
      */
     @Override
