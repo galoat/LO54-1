@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fr.utbm.projet.core;
+package fr.utbm.projet.main;
 
 import fr.utbm.projet.entity.Client;
 import fr.utbm.projet.entity.Course;

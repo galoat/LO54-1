@@ -5,8 +5,6 @@
  */
 package fr.utbm.projet.entity;
 
-import org.hibernate.Hibernate;
-
 /**
  * <b>Client est la classe représentant une personne a inscrite a une seul Uv.</b>
  * <p>
@@ -141,15 +139,24 @@ public class Client {
         this.phone = phone;
         this.email = email;
     }
-
+    /**
+     * Constructeur par default de CLient
+     */
     public Client() {
     }
-
+    /**
+     * methode permettant de retourné les valeurs contenus dans la class client sous forme de String
+     * @return Affichage de toute les valeurs contenus dans la class
+     */
     @Override
     public String toString() {
         return "Client{" + "id=" + id + ", lastname=" + lastname + ", firstname=" + firstname + ", addresse=" + addresse + ", phone=" + phone + ", email=" + email + ", CoursInscrit=" + CoursInscrit + '}';
     }
-
+ /**
+         * Retourne l'ID du CLient.
+         * 
+         * @return ID du client. 
+         */
     public int getId() {
         return id;
     }
@@ -157,7 +164,11 @@ public class Client {
     public void setId(int id) {
         this.id = id;
     }
-
+ /**
+         * Retourne lastname du Client.
+         * 
+         * @return lastname Client. 
+         */
     public String getLastname() {
         return lastname;
     }

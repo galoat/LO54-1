@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author galoat
+ * @author Lacour Florian
  */
 public class ClientService {
     
