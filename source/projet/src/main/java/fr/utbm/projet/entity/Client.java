@@ -5,6 +5,8 @@
  */
 package fr.utbm.projet.entity;
 
+import java.io.Serializable;
+
 /**
  * <b>Client est la classe représentant une personne a inscrite a une seul
  * Uv.</b>
@@ -28,7 +30,7 @@ package fr.utbm.projet.entity;
  * @see Client.hbm.xml
  * @author lacour florian
  */
-public class Client {
+public class Client implements Serializable{
 
     /**
      * L'ID du Client. Cet ID n'est pas modifiable. Il sert d'itentifiant pour

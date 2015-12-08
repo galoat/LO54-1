@@ -5,6 +5,8 @@
  */
 package fr.utbm.projet.entity;
 
+import java.io.Serializable;
+
 /**
  * <b>Course est la classe représentant un cours </b>
  * <p>
@@ -21,7 +23,7 @@ package fr.utbm.projet.entity;
  * @see Course.hbm.xml
  * @author lacour florian
  */
-public class Course {
+public class Course  implements Serializable {
 
     /**
      * Le Code de l'UV. Ce code n'est pas modifiable. Il sert d'itentifiant pour

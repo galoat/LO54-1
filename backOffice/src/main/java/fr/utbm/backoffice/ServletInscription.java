@@ -6,6 +6,7 @@
 package fr.utbm.backoffice;
 
 
+import fr.utbm.eformation.jms.sender.SessionRegJmsSender;
 import fr.utbm.projet.entity.Client;
 import fr.utbm.projet.entity.CourseSession;
 import fr.utbm.projet.service.ClientService;
@@ -77,9 +78,12 @@ public class ServletInscription extends HttpServlet {
         CourseSessionService cs = new CourseSessionService();
         CourseSession cours=cs.getlistCourseSessionByID(ID);
         ClientService ClientService = new ClientService();
-        Client Client= ClientService.creerClient(request.getParameter("LName"), request.getParameter("FName"), request.getParameter("Adresse"), request.getParameter("Phone"), request.getParameter("Email"), cours);
-        ClientService.registerClient(Client);
-    
+        Client client= ClientService.creerClient(request.getParameter("LName"), request.getParameter("FName"), request.getParameter("Adresse"), request.getParameter("Phone"), request.getParameter("Email"), cours);
+        ClientService.registerClient(client);
+        
+        
+      SessionRegJmsSender senderJMS = new SessionRegJmsSender();
+            senderJMS.regNotification(client);
     response.sendRedirect("ServletBackOffice");
  
         

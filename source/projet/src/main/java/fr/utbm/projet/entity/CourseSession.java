@@ -5,6 +5,7 @@
  */
 package fr.utbm.projet.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 /**
  * <b>CourseSession est la classe représentant une session  d'un cours</b>
@@ -27,7 +28,7 @@ import java.util.Date;
  * @see CourseSession.hbm.xml
  * @author lacour florian
  */
-public class CourseSession {
+public class CourseSession implements Serializable{
      /**
          * L'ID de CourSession. Cet ID n'est pas modifiable.
          * Il sert d'itentifiant pour la base de donnée

@@ -5,6 +5,8 @@
  */
 package fr.utbm.projet.entity;
 
+import java.io.Serializable;
+
 /**
  * <b>Location est la classe représentant une position</b>
  * <p>
@@ -22,7 +24,7 @@ package fr.utbm.projet.entity;
  * @see Location.hbm.xml
  * @author lacour florian
  */
-public class Location {
+public class Location implements Serializable {
       /**
       * L ID de de la Locatio,
       * Il s'agit aussi de L'ID hibernate
