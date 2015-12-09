@@ -40,7 +40,7 @@ La base de données est la suivante :
 Cette base doit etre implementé en MySQL
 
 Pour l'installer il faut changer le fichier LO54/source/projet/src/main/resources/hibernate.cfg.xml
-	si vous voulé que l'applciation gere la creation de la base de donné changé  <code> <property name="hbm2ddl.auto">validate</property> </code>par  <code><property name="hbm2ddl.auto">create</property></code>
-	l'adresse du serveur MySQL doit étre renseigné entre le balise   <code><property name="connection.url"> ************</property> </code>
-	Le nom d'utilisateur root de la Base de donné doit étre renseigné entre les balise :  <code><property name="connection.username">******</property></code>
-	Le mot de passe root de la base de donné doit étre renseigné entre les balise :  <code><property name="connection.password">************</property></code>
+	si vous voulé que l'applciation gere la creation de la base de donné changé '<property name="hbm2ddl.auto">validate</property>'par  '<property name="hbm2ddl.auto">create</property>'
+	l'adresse du serveur MySQL doit étre renseigné entre le balise   '<property name="connection.url"> ************</property> '
+	Le nom d'utilisateur root de la Base de donné doit étre renseigné entre les balise : '<property name="connection.username">******</property>'
+	Le mot de passe root de la base de donné doit étre renseigné entre les balise :  '<property name="connection.password">************</property>'
