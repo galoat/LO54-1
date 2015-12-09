@@ -36,9 +36,9 @@ public class ServletInscription extends HttpServlet {
       protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
           
-          int ID=Integer.parseInt(request.getParameter("InscriptionCours"));
-           HttpSession session = request.getSession();
-           session.setAttribute("InscriptionCours", ID);
+        int ID=Integer.parseInt(request.getParameter("InscriptionCours"));
+        HttpSession session = request.getSession();
+        session.setAttribute("InscriptionCours", ID);
           
         CourseSessionService cs = new CourseSessionService();
         CourseSession cours=cs.getlistCourseSessionByID(ID);
@@ -74,8 +74,10 @@ public class ServletInscription extends HttpServlet {
             throws ServletException, IOException {
          HttpSession session = request.getSession();
         int ID =(Integer) session.getAttribute("InscriptionCours");
+        // on recupére le courseSession dans lesquel le client c'est inscrit
         CourseSessionService cs = new CourseSessionService();
         CourseSession cours=cs.getlistCourseSessionByID(ID);
+        // on creer le client a l'aide des champs renseigné par l'utilisateur
         ClientService ClientService = new ClientService();
         Client Client= ClientService.creerClient(request.getParameter("LName"), request.getParameter("FName"), request.getParameter("Adresse"), request.getParameter("Phone"), request.getParameter("Email"), cours);
         ClientService.registerClient(Client);
