@@ -21,31 +21,36 @@ On considérera qu'une même personne s'inscrivant à 2 sessions est alors prés
 #Base de donnée
 La base de données est la suivante :
 	LOCATION
-*ID → Number AUTO (PK)
-*CITY → Char Not Null
+* ID → Number AUTO (PK)
+* CITY → Char Not Null
+
 	COURSE
-*CODE → Char Not Null (PK)
-*TITLE → Char Not Null
+* CODE → Char Not Null (PK)
+* TITLE → Char Not Null
+
+
 	COURSE_SESSION
-*ID → Number AUTO (PK)
-*START_DATE → Date Not Null
-*END_DATE → Date Not Null
-*COURSE_CODE → Char Not Null (FK)
-*LOCATION_ID → Number Not Null (FK)
+* ID → Number AUTO (PK)
+* START_DATE → Date Not Null
+* END_DATE → Date Not Null
+* COURSE_CODE → Char Not Null (FK)
+* LOCATION_ID → Number Not Null (FK)
+
+
 	CLIENT
-*ID → Number AUTO (PK)
-*LASTNAME → Char Not Null
-*FIRSTNAME → Char Not Null
-*ADDRESS → Char Not Null
-*PHONE → Char Not Null
-*EMAIL → Char
-*COURSE_SESSION_ID → Number Not Null (FK)
+* ID → Number AUTO (PK)
+* LASTNAME → Char Not Null
+* FIRSTNAME → Char Not Null
+* ADDRESS → Char Not Null
+* PHONE → Char Not Null
+* EMAIL → Char
+* COURSE_SESSION_ID → Number Not Null (FK)
 
 Cette base doit etre implementé en MySQL
 #Procedure pour implementation
 Pour l'installer il faut changer le fichier `LO54/source/projet/src/main/resources/hibernate.cfg.xml`
 	si vous voulez que l'applciation gere la creation de la base de donné il faut changé 
 ` <property name="hbm2ddl.auto">validate</property>`par   `<property name="hbm2ddl.auto">create</property>`
-	l'adresse du serveur MySQL doit étre renseigné entre le balise   '<property name="connection.url"> ************</property> '
-	Le nom d'utilisateur root de la Base de donné doit étre renseigné entre les balise : '<property name="connection.username">******</property>'
-	Le mot de passe root de la base de donné doit étre renseigné entre les balise :  '<property name="connection.password">************</property>'
+	l'adresse du serveur MySQL doit étre renseigné entre le balise   `<property name="connection.url"> ************</property> `
+	Le nom d'utilisateur root de la Base de donné doit étre renseigné entre les balise : `<property name="connection.username">******</property>`
+	Le mot de passe root de la base de donné doit étre renseigné entre les balise :  `<property name="connection.password">************</property>`
