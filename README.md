@@ -20,16 +20,16 @@ On considérera qu'une même personne s'inscrivant à 2 sessions est alors prés
 
 #Base de donnée
 La base de données est la suivante :
-	LOCATION
+##LOCATION
 * ID → Number AUTO (PK)
 * CITY → Char Not Null
 
-	COURSE
+##COURSE
 * CODE → Char Not Null (PK)
 * TITLE → Char Not Null
 
 
-	COURSE_SESSION
+##COURSE_SESSION
 * ID → Number AUTO (PK)
 * START_DATE → Date Not Null
 * END_DATE → Date Not Null
@@ -37,7 +37,7 @@ La base de données est la suivante :
 * LOCATION_ID → Number Not Null (FK)
 
 
-	CLIENT
+##CLIENT
 * ID → Number AUTO (PK)
 * LASTNAME → Char Not Null
 * FIRSTNAME → Char Not Null
